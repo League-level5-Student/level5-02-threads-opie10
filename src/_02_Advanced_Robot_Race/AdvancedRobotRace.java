@@ -47,16 +47,8 @@ while(rob.getY()>50) {
 		int dist = new Random().nextInt(50);
 		rob.move(dist);
 	}
-if (race==true) {
-	winner(rob);
-	race=false;
-}
 
 
-}
-public static void winner (Robot rob) {
-	JOptionPane.showMessageDialog(null, "Winner!");
-	race=false;
 
 }
 }
