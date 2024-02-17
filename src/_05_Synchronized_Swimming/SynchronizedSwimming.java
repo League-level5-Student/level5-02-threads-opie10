@@ -12,6 +12,10 @@ package _05_Synchronized_Swimming;
  * pool is not big enough for both of them. These are world-class swimmers, and it only
  * takes them 2 seconds to complete a lap! They have agreed to each take turns swimming
  * one lap at a time. Your job is to make sure they follow the rules.
+ * First off, as a swimmer, 2 seconds is crazy, but i get why because timing, you don't want people waiting 19 seconds per lap.
+ *  Second, they could do this thing called splitting a lane or circle swimming. even it there's one lane its easy enough for people
+ *  to share it, even doing butterfly or breast stroke, we do it all the time as high level competitive swimmers
+ *  wanted to share that lol but i like this class it make sense
  */
 public class SynchronizedSwimming {
 	private static final Object swimmingPool = new Object();
@@ -28,9 +32,11 @@ public class SynchronizedSwimming {
 	 * the swimmingPool object until the swimmer has finished their lap.
 	 */
 	private static void swimLap(Swimmer swimmer) throws InterruptedException {
+		synchronized(swimmingPool) {
 		System.out.println(swimmer.name + " started a lap!");
 		Thread.sleep(2000);
 		System.out.println(swimmer.name + " finished!");
+		}
 	}
 
 	public static void takeTurn(Swimmer swimmer) {
